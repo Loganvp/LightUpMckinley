@@ -1,344 +1,803 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
 
-    <title>Onassis - Bootstrap 3 Theme</title>
+    <head>
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lancar - Bootstrap One-Page Portfolio Template</title>
 
-    <!-- Custom styles for this template -->
-    <link href="assets/css/main.css" rel="stylesheet">
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:700,300,400">        
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/elegant-font/code/style.css">
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/media-queries.css">
 
-    <script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/Chart.js"></script>
-	<script src="assets/js/modernizr.custom.js"></script>
-	
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
-	
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-      <script src="assets/js/respond.min.js"></script>
-    <![endif]-->
-  </head>
+    </head>
 
-  <body data-spy="scroll" data-offset="0" data-target="#theMenu">
+    <body>
+    
+        <!-- Loader -->
+    	<div class="loader">
+    		<div class="loader-img"></div>
+    	</div>
 		
-	<!-- Menu -->
-	<nav class="menu" id="theMenu">
-		<div class="menu-wrap">
-			<h1 class="logo"><a href="index.html#home">Onassis</a></h1>
-			<i class="icon-remove menu-close"></i>
-			<a href="#home" class="smoothScroll">Home</a>
-			<a href="#services" class="smoothScroll">Services</a>
-			<a href="#portfolio" class="smoothScroll">Portfolio</a>
-			<a href="#about" class="smoothScroll">About</a>
-			<a href="#contact" class="smoothScroll">Contact</a>
-			<a href="#"><i class="icon-facebook"></i></a>
-			<a href="#"><i class="icon-twitter"></i></a>
-			<a href="#"><i class="icon-dribbble"></i></a>
-			<a href="#"><i class="icon-envelope"></i></a>
-		</div>
+		<!-- Top menu -->
+		<nav class="navbar navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html">Lancar - Bootstrap One-Page Portfolio Template</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="top-navbar-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a class="scroll-link" href="#top-content">Top</a></li>
+						<li><a class="scroll-link" href="#what-we-do">Services</a></li>
+						<li><a class="scroll-link" href="#portfolio">Portfolio</a></li>
+						<li><a class="scroll-link" href="#pricing-2">Prices</a></li>
+						<li><a class="scroll-link" href="#about">About</a></li>
+						<li><a class="scroll-link" href="#contact">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 		
-		<!-- Menu button -->
-		<div id="menuToggle"><i class="icon-reorder"></i></div>
-	</nav>
+        <!-- Page title -->
+        <div class="page-title top-content">
+            <div class="page-title-text wow fadeInUp">
+            	<h1>Welcome to our site</h1>
+            	<p>We are Lancar, a design agency doing cool things with Photoshop and WordPress. Take a look around to see what we can do for you!</p>
+            	<div class="page-title-bottom-link">
+            		<a class="big-link-1 btn scroll-link" href="#pricing-2">Start now</a>
+            		<a class="big-link-2 btn scroll-link" href="#what-we-do">Learn more</a>
+            	</div>
+            </div>
+        </div>
 
+		<!-- What we do -->
+        <div class="block-3-container section-container what-we-do-container">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm-12 block-3 section-description wow fadeIn">
+	                    <h2>What we do</h2>
+	                    <div class="divider-1 wow fadeInUp"><span></span></div>
+	                    <p>
+	                    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+	                    	labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+	                    </p>
+	                </div>
+	            </div>
+	            <div class="row">
+                	<div class="col-sm-3 block-3-box wow fadeInUp">
+	                	<div class="block-3-box-icon">
+	                		<span aria-hidden="true" class="icon_pencil"></span>
+	                	</div>
+	                    <h3>Web Design</h3>
+	                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <div class="col-sm-3 block-3-box wow fadeInDown">
+	                	<div class="block-3-box-icon">
+	                		<span aria-hidden="true" class="icon_cogs"></span>
+	                	</div>
+	                    <h3>Ui / Ux</h3>
+	                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <div class="col-sm-3 block-3-box wow fadeInUp">
+	                	<div class="block-3-box-icon">
+	                		<span aria-hidden="true" class="social_twitter"></span>
+	                	</div>
+	                    <h3>Social Media</h3>
+	                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <div class="col-sm-3 block-3-box wow fadeInDown">
+	                	<div class="block-3-box-icon">
+	                		<span aria-hidden="true" class="icon_lightbulb"></span>
+	                	</div>
+	                    <h3>Branding</h3>
+	                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                    </div>
+	            </div>
+	        </div>
+        </div>
+        
+        <!-- Clients -->
+        <div class="clients-container section-container section-container-gray">
+        	<div class="container">
+        		<div class="row">
+        			<div class="col-sm-2 clients-text wow fadeInLeft">
+                    	<h3>We've worked with these guys:</h3>
+	            	</div>
+	            	<div class="col-sm-10 clients wow fadeInUp">
+                    	<a href="https://wrapbootstrap.com/theme/trilli-bi-fullscreen-landing-page-WB000X02N?ref=azmind" target="_blank" rel="nofollow">
+                    		<img src="assets/img/clients/1.png" alt="" data-at2x="assets/img/clients/1.png">
+                    	</a>
+                    	<a href="https://wrapbootstrap.com/theme/areta-agency-portfolio-template-WB0L5XF38?ref=azmind" target="_blank" rel="nofollow">
+                    		<img src="assets/img/clients/2.png" alt="" data-at2x="assets/img/clients/2.png">
+                    	</a>
+                    	<a href="https://wrapbootstrap.com/theme/seria-coming-soon-landing-page-WB05D4591?ref=azmind" target="_blank" rel="nofollow">
+                    		<img src="assets/img/clients/3.png" alt="" data-at2x="assets/img/clients/3.png">
+                    	</a>
+                    	<a href="https://wrapbootstrap.com/theme/jesis-responsive-app-landing-page-WB085528N?ref=azmind" target="_blank" rel="nofollow">
+                    		<img src="assets/img/clients/4.png" alt="" data-at2x="assets/img/clients/4.png">
+                    	</a>
+	            	</div>
+	            </div>
+        	</div>
+        </div>
 
-	
-	<!-- ========== HEADER SECTION ========== -->
-	<section id="home" name="home"></section>
-	<div id="headerwrap">
-		<div class="container">
-			<br>
-			<h1>Onassis</h1>
-			<h2>Free Bootstrap 3 Theme</h2>
-			<div class="row">
-				<br>
-				<br>
-				<br>
-				<div class="col-lg-6 col-lg-offset-3">
-				</div>
-			</div>
-		</div><!-- /container -->
-	</div><!-- /headerwrap -->
-	
-	
-	<!-- ========== WHITE SECTION ========== -->
-	<div id="w">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-				<h3>WELCOME TO <bold>ONASSIS</bold>. <bold>A FREE BOOTSTRAP 3</bold> THEME. CRAFTED WITH LOVE BY <bold>BLACKTIE.CO</bold>. <br/>
-					<bold>IDEAL FOR</bold> AGENCIES & FREELANCERS.
-				</h3>
-				</div>
-			</div>
-		</div><!-- /container -->
-	</div><!-- /w -->
-	
-	<!-- ========== SERVICES - GREY SECTION ========== -->
-	<section id="services" name="services"></section>
-	<div id="g">
-		<div class="container">
-			<div class="row">
-				<h3>OUR SERVICES</h3>
-				<br>
-				<br>
-				<div class="col-lg-3">
-					<img src="assets/img/s1.png">
-					<h4>London</h4>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
-				</div>
-				<div class="col-lg-3">
-					<img src="assets/img/s2.png">
-					<h4>Berlin</h4>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
-				</div>
-				<div class="col-lg-3">
-					<img src="assets/img/s3.png">
-					<h4>Paris</h4>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
-				</div>
-				<div class="col-lg-3">
-					<img src="assets/img/s4.png">
-					<h4>Tokyo</h4>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
-				</div>
-			</div>
-		</div><!-- /container -->
-	</div><!-- /g -->
-	
-	<!-- ========== CHARTS - DARK GREY SECTION ========== -->
-	<div id="dg">
-		<div class="container">
-			<div class="row">
-				<h3>SOME CHARTS</h3>
-				<br>
-				<br>
-				<div class="col-lg-4">
-					<canvas id="javascript" height="130" width="130"></canvas>
-					<br>
-					<h4>Javascript</h4>
-					<br>
-					<script>
-						var doughnutData = [
-								{
-									value: 70,
-									color:"#f85c37"
-								},
-								{
-									value : 30,
-									color : "#ecf0f1"
-								}
-							];
-							var myDoughnut = new Chart(document.getElementById("javascript").getContext("2d")).Doughnut(doughnutData);
-					</script>
+		<!-- Block 2 -->
+        <div class="block-2-container section-container">
+	        <div class="container">
+	            <div class="row">
+	            	<div class="col-sm-6 block-2-box block-2-left block-2-media wow fadeInLeft">
+	            		<div class="block-2-img-container">
+	            			<img src="assets/img/about/4.jpg" alt="" data-at2x="assets/img/about/4.jpg">
+	            			<div class="img-container-line line-1"></div>
+	            			<div class="img-container-line line-2"></div>
+	            			<div class="img-container-line line-3"></div>
+	            		</div>
+	            	</div>
+	            	<div class="col-sm-6 block-2-box block-2-right wow fadeInUp">	            		
+	            		<h3>We love web design</h3>
+	            		<p>
+	            			Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit 
+	            			lobortis nisl ut aliquip ex ea commodo consequat.
+	            		</p>
+	            		<ul>
+	            			<li>
+	            				<span aria-hidden="true" class="icon_check list-icon"></span> Etiam processus dynamicus qui
+	            			</li>
+	            			<li>
+	            				<span aria-hidden="true" class="icon_check list-icon"></span> Quam nunc putamus Photoshop
+	            			</li>
+	            			<li>
+	            				<span aria-hidden="true" class="icon_check list-icon"></span> Mutationem consuetudium WordPress
+	            			</li>
+	            			<li>
+	            				<span aria-hidden="true" class="icon_check list-icon"></span> Exerci tation ullamcorper
+	            			</li>
+	            		</ul>
+	            	</div>
+	            </div>
+	        </div>
+        </div>
+        
+        <!-- Block 2 -->
+        <div class="block-2-container section-container section-container-gray">
+	        <div class="container">
+	            <div class="row">
+	            	<div class="col-sm-6 block-2-box block-2-left wow fadeInLeft">
+	            		<h3>We design interfaces</h3>
+	            		<p>
+	            			Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit 
+	            			lobortis nisl ut aliquip ex ea commodo consequat.
+	            		</p>
+	            		<ul>
+	            			<li>
+	            				<span aria-hidden="true" class="icon_check list-icon"></span> Etiam processus dynamicus qui
+	            			</li>
+	            			<li>
+	            				<span aria-hidden="true" class="icon_check list-icon"></span> Quam nunc putamus Photoshop
+	            			</li>
+	            			<li>
+	            				<span aria-hidden="true" class="icon_check list-icon"></span> Mutationem consuetudium WordPress
+	            			</li>
+	            			<li>
+	            				<span aria-hidden="true" class="icon_check list-icon"></span> Exerci tation ullamcorper
+	            			</li>
+	            		</ul>
+	            	</div>
+	            	<div class="col-sm-6 block-2-box block-2-right block-2-media wow fadeInUp">
+	            		<div class="block-2-img-container">
+	            			<img src="assets/img/about/5.jpg" alt="" data-at2x="assets/img/about/5.jpg">
+	            			<div class="img-container-line line-1"></div>
+	            			<div class="img-container-line line-2"></div>
+	            			<div class="img-container-line line-3"></div>
+	            		</div>
+	            	</div>
+	            </div>
+	        </div>
+        </div>
+        
+        <!-- Counters -->
+        <div class="counters-container section-container section-container-full-bg">
+        	<div class="container">
+        		<div class="row">
+	            	<div class="col-sm-3 counter-box wow fadeInUp">
+                    	<h4 data-from="0" data-to="12">0</h4>
+                    	<p>Years of experience</p>
+	            	</div>
+	            	<div class="col-sm-3 counter-box wow fadeInDown">
+                    	<h4 data-from="0" data-to="274">0</h4>
+                    	<p>Projects completed</p>
+	            	</div>
+	            	<div class="col-sm-3 counter-box wow fadeInUp">
+                    	<h4 data-from="0" data-to="19295">0</h4>
+                    	<p>Lines of code</p>
+	            	</div>
+	            	<div class="col-sm-3 counter-box wow fadeInDown">
+                    	<h4 data-from="0" data-to="8296">0</h4>
+                    	<p>Cups of coffee</p>
+	            	</div>
+	            </div>
+        	</div>
+        </div>
+        
+        <!-- Portfolio -->
+        <div class="portfolio-container section-container">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm-12 portfolio section-description wow fadeIn">
+	                	<h2>Our portfolio</h2>
+	                    <div class="divider-1 wow fadeInUp"><span></span></div>
+	                    <p>
+	                    	Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum 
+	                    	est notare quam littera gothica, quam nunc putamus parum claram lorem.
+	                    </p>
+	                </div>
+	            </div>
+	            <div class="row">
+	            	<div class="col-sm-12 portfolio-filters wow fadeInUp">
+	            		<a href="#" class="filter-all active">All</a> / 
+	            		<a href="#" class="filter-design">Design</a> / 
+	            		<a href="#" class="filter-development">Development</a> / 
+	            		<a href="#" class="filter-branding">Branding</a>
+	            	</div>
+	            </div>
+	            <div class="row">
+	            	<div class="col-sm-12 portfolio-masonry">
+		                <div class="portfolio-box design">
+		                	<img src="assets/img/portfolio/1.jpg" alt="" data-at2x="assets/img/portfolio/1.jpg">
+		                	<div class="portfolio-box-text-container">
+		                		<div class="portfolio-box-text">
+		                			<p>Trilli Bi template</p>
+		                		</div>
+		                	</div>
+		                </div>
+		                <div class="portfolio-box development">
+		                	<img src="assets/img/portfolio/2.jpg" alt="" data-at2x="assets/img/portfolio/2.jpg">
+		                	<div class="portfolio-box-text-container">
+		                		<div class="portfolio-box-text">
+		                			<p>Sit amet logo</p>
+		                		</div>
+		                	</div>
+		                </div>
+		                <div class="portfolio-box branding">
+		                	<img src="assets/img/portfolio/3.jpg" alt="" data-at2x="assets/img/portfolio/3.jpg">
+		                	<div class="portfolio-box-text-container">
+		                		<div class="portfolio-box-text">
+		                			<p>Aeria app page</p>
+		                		</div>
+		                	</div>
+		                </div>
+		                <div class="portfolio-box development">
+		                	<img src="assets/img/portfolio/4.jpg" alt="" data-at2x="assets/img/portfolio/4.jpg">
+		                	<div class="portfolio-box-text-container">
+		                		<div class="portfolio-box-text">
+		                			<p>Etiam processus dynamicus</p>
+		                		</div>
+		                	</div>
+		                </div>
+		                <div class="portfolio-box design">
+		                	<img src="assets/img/portfolio/5.jpg" alt="" data-at2x="assets/img/portfolio/5.jpg">
+		                	<div class="portfolio-box-text-container">
+		                		<div class="portfolio-box-text">
+		                			<p>March notare site</p>
+		                		</div>
+		                	</div>
+		                </div>
+		                <div class="portfolio-box development">
+		                	<img src="assets/img/portfolio/6.jpg" alt="" data-at2x="assets/img/portfolio/6.jpg">
+		                	<div class="portfolio-box-text-container">
+		                		<div class="portfolio-box-text">
+		                			<p>Mirum est notare</p>
+		                		</div>
+		                	</div>
+		                </div>
+		                <div class="portfolio-box design">
+		                	<img src="assets/img/portfolio/7.jpg" alt="" data-at2x="assets/img/portfolio/7.jpg">
+		                	<div class="portfolio-box-text-container">
+		                		<div class="portfolio-box-text">
+		                			<p>Celic template</p>
+		                		</div>
+		                	</div>
+		                </div>
+		                <div class="portfolio-box development">
+		                	<img src="assets/img/portfolio/8.jpg" alt="" data-at2x="assets/img/portfolio/8.jpg">
+		                	<div class="portfolio-box-text-container">
+		                		<div class="portfolio-box-text">
+		                			<p>Sit amet logo</p>
+		                		</div>
+		                	</div>
+		                </div>
+		                <div class="portfolio-box branding">
+		                	<img src="assets/img/portfolio/9.jpg" alt="" data-at2x="assets/img/portfolio/9.jpg">
+		                	<div class="portfolio-box-text-container">
+		                		<div class="portfolio-box-text">
+		                			<p>Jalia business</p>
+		                		</div>
+		                	</div>
+		                </div>
+		                <div class="portfolio-box design">
+		                	<img src="assets/img/portfolio/10.jpg" alt="" data-at2x="assets/img/portfolio/10.jpg">
+		                	<div class="portfolio-box-text-container">
+		                		<div class="portfolio-box-text">
+		                			<p>Mirum est notare</p>
+		                		</div>
+		                	</div>
+		                </div>
+		                <div class="portfolio-box development">
+		                	<img src="assets/img/portfolio/11.jpg" alt="" data-at2x="assets/img/portfolio/11.jpg">
+		                	<div class="portfolio-box-text-container">
+		                		<div class="portfolio-box-text">
+		                			<p>Etiam processus social</p>
+		                		</div>
+		                	</div>
+		                </div>
+		                <div class="portfolio-box branding">
+		                	<img src="assets/img/portfolio/12.jpg" alt="" data-at2x="assets/img/portfolio/12.jpg">
+		                	<div class="portfolio-box-text-container">
+		                		<div class="portfolio-box-text">
+		                			<p>Sit website logo</p>
+		                		</div>
+		                	</div>
+		                </div>
+	                </div>
+	            </div>
+	        </div>
+        </div>
+        
+		<!-- Block 2 -->
+        <div class="block-2-container section-container section-container-gray">
+	        <div class="container">
+	            <div class="row">
+	            	<div class="col-sm-6 block-2-box block-2-left wow fadeInLeft">
+	            		<h3>How we do it?</h3>
+	            		<p>
+	            			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+	            			incididunt ut labore et dolore magna.
+	            		</p>
+	            		<ul>
+	            			<li>
+	            				<span aria-hidden="true" class="icon_plus list-icon"></span> Etiam processus dynamicus qui
+	            			</li>
+	            			<li>
+	            				<span aria-hidden="true" class="icon_plus list-icon"></span> Quam nunc putamus Photoshop
+	            			</li>
+	            			<li>
+	            				<span aria-hidden="true" class="icon_plus list-icon"></span> Mutationem consuetudium WordPress
+	            			</li>
+	            			<li>
+	            				<span aria-hidden="true" class="icon_plus list-icon"></span> Exerci tation ullamcorper
+	            			</li>
+	            		</ul>
+	            	</div>
+	            	<div class="col-sm-6 block-2-box block-2-right block-2-media wow fadeInUp">
+	            		<div class="video-box">
+		                    <div class="embed-responsive embed-responsive-16by9">
+		                    	<iframe class="embed-responsive-item" src="//player.vimeo.com/video/115014610?title=0&amp;byline=0&amp;portrait=0&amp;badge=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		                    </div>
+	                    </div>
+	            	</div>
+	            </div>
+	        </div>
+        </div>
 
-				</div>
-				<div class="col-lg-4">
-					<canvas id="bootstrap" height="130" width="130"></canvas>
-					<br>
-					<h4>Bootstrap</h4>
-					<br>
-					<script>
-						var doughnutData = [
-								{
-									value: 90,
-									color:"#f85c37"
-								},
-								{
-									value : 10,
-									color : "#ecf0f1"
-								}
-							];
-							var myDoughnut = new Chart(document.getElementById("bootstrap").getContext("2d")).Doughnut(doughnutData);
-					</script>
-				</div>
-				<div class="col-lg-4">
-					<canvas id="wordpress" height="130" width="130"></canvas>
-					<br>
-					<h4>Wordpress</h4>
-					<br>
-					<script>
-						var doughnutData = [
-								{
-									value: 55,
-									color:"#f85c37"
-								},
-								{
-									value : 45,
-									color : "#ecf0f1"
-								}
-							];
-							var myDoughnut = new Chart(document.getElementById("wordpress").getContext("2d")).Doughnut(doughnutData);
-					</script>
-				</div>
-			
-			</div>	
-		</div><!-- /container -->
-	</div><!-- /dg -->
-	
-	<section id="portfolio" name="portfolio"></section>
-	<div id="portfoliowrap">
-		<div class="container">
-			<div class="row">
-				<h3>COOL WORKS</h3>
-				<br>
-				<br>
-				<div class="col-lg-4 port-space">
-					<a href="item.html"><img src="assets/img/work1.png"></a>
-				</div>
-				<div class="col-lg-4 port-space">
-					<a href="item.html"><img src="assets/img/work2.png"></a>
-				</div>
-				<div class="col-lg-4 port-space">
-					<a href="item.html"><img src="assets/img/work3.png"></a>
-				</div>				
-			</div>	
-		</div><!-- /container -->
-	</div><!-- /portfoliowrap -->
-	
-	<!-- ========== WHITE SECTION ========== -->
-	<div id="w">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-				<h3>WE WORK HARD TO DELIVER A <bold>HIGH QUALITY SERVICE</bold>. OUR AIM IS YOUR COMPLETE <bold>SATISFACTION</bold>.
-				</h3>
-				</div>
-			</div>
-		</div><!-- /container -->
-	</div><!-- /w -->
-	
-	<!-- ========== ABOUT - GREY SECTION ========== -->
-	<section id="about" name="about"></section>
-	<div id="g">
-		<div class="container">
-			<div class="row">
-				<h3>ABOUT US</h3>
-				<br>
-				<br>
-				<div class="col-lg-2"></div>
-				<div class="col-lg-8">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lectus elit, tincidunt nec turpis sed, accumsan iaculis ipsum. Nulla at augue auctor, tristique erat in, ultricies nunc. Mauris eget metus leo. Ut in mi lacinia, mattis nisl non, ultrices risus. Vestibulum aliquet aliquam ipsum ut ullamcorper. Pellentesque fringilla, massa vel rutrum consequat, nulla velit fermentum dolor, sed scelerisque.</p>
-				<br>
-				<br>
-				</div>
-				<div class="col-lg-2"></div>
-				<div class="col-lg-3 team">
-					<img class="img-circle" src="assets/img/team01.jpg" height="90" width="90">
-					<h4>Liz Stewart</h4>
-					<h5><i>Product Manager</i></h5>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-					<p>
-						<a href="index.html#"><i class="icon-facebook"></i></a>
-						<a href="index.html#"><i class="icon-twitter"></i></a>
-						<a href="index.html#"><i class="icon-envelope"></i></a>
+		<!-- Our motto -->
+        <div class="our-motto-container section-container section-container-full-bg">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm-12 our-motto section-description wow fadeInLeftBig">
+	                    <p>
+	                    	"Success is not the key to happiness. Happiness is the key to success. 
+	                    	If you love what you are doing, you will be successful."
+	                    </p>
+	                    <div class="our-motto-author">ALBERT SCHWEITZER</div>
+	                </div>
+	            </div>
+	        </div>
+        </div>
 
-					</p>
-				</div>
+        <!-- Pricing -->
+        <div class="pricing-2-container section-container">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm-12 pricing-2 section-description wow fadeIn">
+	                	<h2>Packages</h2>
+	                    <div class="divider-1 wow fadeInUp"><span></span></div>
+	                    <p>
+	                    	Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. 
+	                    	Mirum est notare quam littera gothica, quam nunc putamus parum claram lorem.
+	                    </p>
+	                </div>
+	            </div>
+	            <div class="row">
+	                <div class="col-sm-3 pricing-2-box wow fadeInUp">
+	                    <div class="pricing-2-table">
+	                    	<h3>Basic</h3>
+	                    	<h4>Freelancer</h4>
+	                    	<div class="pricing-2-table-divider"><span></span></div>
+	                    	<div class="pricing-2-table-price">$<span>12</span>/month</div>
+	                    	<div class="pricing-2-table-description">
+	                    		<p><span>1000</span> contacts</p>
+	                    		<p><span>Normal</span> speed</p>
+	                    		<p><span>500</span> emails</p>
+	                    		<p><span>300MB</span> storage</p>
+							</div>
+							<div class="pricing-2-table-button">
+								<a class="big-link-1 btn" href="#">Sign up</a>
+							</div>
+	                    </div>
+	                </div>
+	                <div class="col-sm-3 pricing-2-box wow fadeInDown">
+	                    <div class="pricing-2-table pricing-2-table-best">
+	                    	<h3>Ultimate</h3>
+	                    	<h4>Best value</h4>
+	                    	<div class="pricing-2-table-icon"><span aria-hidden="true" class="icon_like_alt"></span></div>
+	                    	<div class="pricing-2-table-price">$<span>35</span>/month</div>
+	                    	<div class="pricing-2-table-description">
+	                    		<p><span>3000</span> contacts</p>
+	                    		<p><span>2x</span> speed</p>
+	                    		<p><span>2000</span> emails</p>
+	                    		<p><span>500MB</span> storage</p>
+							</div>
+							<div class="pricing-2-table-button">
+								<a class="big-link-1 btn" href="#">Sign up</a>
+							</div>
+	                    </div>
+	                </div>
+	                <div class="col-sm-3 pricing-2-box wow fadeInUp">
+	                	<div class="pricing-2-table">
+	                    	<h3>Silver</h3>
+	                    	<h4>Big business</h4>
+	                    	<div class="pricing-2-table-divider"><span></span></div>
+	                    	<div class="pricing-2-table-price">$<span>75</span>/month</div>
+	                    	<div class="pricing-2-table-description">
+	                    		<p><span>5000</span> contacts</p>
+	                    		<p><span>4x</span> speed</p>
+	                    		<p><span>4000</span> emails</p>
+	                    		<p><span>900MB</span> storage</p>
+							</div>
+							<div class="pricing-2-table-button">
+								<a class="big-link-1 btn" href="#">Sign up</a>
+							</div>
+	                    </div>
+	                </div>
+	                <div class="col-sm-3 pricing-2-box wow fadeInDown">
+	                	<div class="pricing-2-table">
+	                    	<h3>Platinum</h3>
+	                    	<h4>Bigger business</h4>
+	                    	<div class="pricing-2-table-divider"><span></span></div>
+	                    	<div class="pricing-2-table-price">$<span>120</span>/month</div>
+	                    	<div class="pricing-2-table-description">
+	                    		<p><span>7000</span> contacts</p>
+	                    		<p><span>6x</span> speed</p>
+	                    		<p><span>8000</span> emails</p>
+	                    		<p><span>2GB</span> storage</p>
+							</div>
+							<div class="pricing-2-table-button">
+								<a class="big-link-1 btn" href="#">Sign up</a>
+							</div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+        </div>
 
-				<div class="col-lg-3 team">
-					<img class="img-circle" src="assets/img/team02.jpg" height="90" width="90">
-					<h4>Brad Casey</h4>
-					<h5><i>Front-end Developer</i></h5>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-					<p>
-						<a href="index.html#"><i class="icon-facebook"></i></a>
-						<a href="index.html#"><i class="icon-twitter"></i></a>
-						<a href="index.html#"><i class="icon-envelope"></i></a>
+        <!-- Testimonials -->
+        <div class="testimonials-container section-container section-container-gray">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm-8 testimonials section-description wow fadeInLeft">
+	                    <h3>Listen to our clients</h3>
+	                    <div class="testimonial-active"></div>
+	                    <div class="testimonial-single">
+	                    	<p>
+	                    		Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit 
+	                    		lobortis nisl ut aliquip ex ea commodo consequat. Ut wisi enim ad minim veniam, 
+	                    		quis nostrud exerci tation ullamcorper suscipit lobortis nisl.
+	                    		<br>
+	                    		<a href="">John Doe, johndoe.com</a>
+	                    	</p>
+	                    	<div class="testimonial-single-image">
+	                    		<img src="assets/img/testimonials/1.jpg" alt="" data-at2x="assets/img/testimonials/1.jpg">
+	                    	</div>
+	                    </div>
+	                    <div class="testimonial-single">
+	                    	<p>
+	                    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
+	                    		ut labore et. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+	                    		incididunt ut labore et.
+	                    		<br>
+	                    		<a href="">Jane Jonsson, blog.jane.com</a>
+	                    	</p>
+	                    	<div class="testimonial-single-image">
+	                    		<img src="assets/img/testimonials/2.jpg" alt="" data-at2x="assets/img/testimonials/2.jpg">
+	                    	</div>
+	                    </div>
+	                    <div class="testimonial-single">
+	                    	<p>
+	                    		Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit 
+	                    		lobortis nisl ut aliquip ex ea commodo consequat. Ut wisi enim ad minim veniam, 
+	                    		quis nostrud exerci tation ullamcorper suscipit lobortis nisl.
+	                    		<br>
+	                    		<a href="">John Doe, johndoe.com</a>
+	                    	</p>
+	                    	<div class="testimonial-single-image">
+	                    		<img src="assets/img/testimonials/3.jpg" alt="" data-at2x="assets/img/testimonials/3.jpg">
+	                    	</div>
+	                    </div>
+	                    <div class="testimonial-single">
+	                    	<p>
+	                    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
+	                    		ut labore et. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+	                    		incididunt ut labore et.
+	                    		<br>
+	                    		<a href="">Jane Jonsson, blog.jane.com</a>
+	                    	</p>
+	                    	<div class="testimonial-single-image">
+	                    		<img src="assets/img/testimonials/4.jpg" alt="" data-at2x="assets/img/testimonials/4.jpg">
+	                    	</div>
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="testimonials-icon-container">
+            		<span aria-hidden="true" class="icon_chat"></span>
+            	</div>
+	        </div>
+        </div>
+        
+        <!-- Call to action -->
+        <div class="call-to-action-container section-container section-container-full-bg">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm-12 call-to-action section-description wow fadeInLeftBig">
+	                    <p>
+	                    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+	                    	labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+	                    </p>
+	                </div>
+	            </div>
+	            <div class="row">
+                    <div class="col-sm-12">
+                        <div class="section-bottom-link wow fadeInUp">
+                        	<a class="big-link-1 btn scroll-link" href="#contact">Contact us now!</a>
+                        </div>
+                    </div>
+                </div>
+	        </div>
+        </div>
+        
+        <!-- About us -->
+        <div class="about-container section-container">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm-12 about section-description wow fadeIn">
+	                    <h2>About us</h2>
+	                    <div class="divider-1 wow fadeInUp"><span></span></div>
+	                    <p>
+	                    	Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut 
+	                    	aliquip ex ea commodo consequat. Ut wisi enim ad minim veniam, quis nostrud.
+	                    </p>
+	                </div>
+	            </div>
+	        </div>
+        </div>
+        
+        <!-- Block 2 (team member) -->
+        <div class="block-2-container section-container about-block-2-container">
+	        <div class="container">
+	            <div class="row">
+	            	<div class="col-sm-4 block-2-box block-2-left block-2-media wow fadeInLeft">
+	            		<div class="block-2-img-container">
+	            			<img src="assets/img/about/1.jpg" alt="" data-at2x="assets/img/about/1.jpg">
+	            			<div class="img-container-line line-1"></div>
+	            			<div class="img-container-line line-2"></div>
+	            			<div class="img-container-line line-3"></div>
+	            		</div>
+	            	</div>
+	            	<div class="col-sm-8 block-2-box block-2-right wow fadeInUp">
+	            		<h3>Jane Doe / <span>Our CEO</span></h3>
+	            		<p>
+	            			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+	            			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+	            		</p>
+	            		<p>
+	            			Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. 
+	            			Mirum est notare quam littera gothica, quam nunc putamus parum claram lorem.
+	            		</p>
+	            		<h3>Follow Her:</h3>
+	            		<div class="about-social">
+		                	<a href="#"><i class="fa fa-facebook"></i></a>
+		                	<a href="#"><i class="fa fa-dribbble"></i></a>
+		                    <a href="#"><i class="fa fa-twitter"></i></a>
+		                    <a href="#"><i class="fa fa-pinterest"></i></a>
+		                </div>
+	            	</div>
+	            </div>
+	        </div>
+        </div>
+        
+        <!-- Block 2 (team member) -->
+        <div class="block-2-container section-container section-container-gray about-block-2-container">
+	        <div class="container">
+	            <div class="row">
+	            	<div class="col-sm-8 block-2-box block-2-left wow fadeInLeft">
+	            		<h3>Tim Brown / <span>Developer</span></h3>
+	            		<p>
+	            			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+	            			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+	            		</p>
+	            		<p>
+	            			Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. 
+	            			Mirum est notare quam littera gothica, quam nunc putamus parum claram lorem.
+	            		</p>
+	            		<h3>Follow Him:</h3>
+	            		<div class="about-social">
+		                	<a href="#"><i class="fa fa-facebook"></i></a>
+		                	<a href="#"><i class="fa fa-dribbble"></i></a>
+		                    <a href="#"><i class="fa fa-twitter"></i></a>
+		                    <a href="#"><i class="fa fa-pinterest"></i></a>
+		                </div>
+	            	</div>
+	            	<div class="col-sm-4 block-2-box block-2-right block-2-media wow fadeInUp">
+	            		<div class="block-2-img-container">
+	            			<img src="assets/img/about/2.jpg" alt="" data-at2x="assets/img/about/2.jpg">
+	            			<div class="img-container-line line-1"></div>
+	            			<div class="img-container-line line-2"></div>
+	            			<div class="img-container-line line-3"></div>
+	            		</div>
+	            	</div>
+	            </div>
+	        </div>
+        </div>
+        
+        <!-- Block 2 (team member) -->
+        <div class="block-2-container section-container about-block-2-container">
+	        <div class="container">
+	            <div class="row">
+	            	<div class="col-sm-4 block-2-box block-2-left block-2-media wow fadeInLeft">
+	            		<div class="block-2-img-container">
+	            			<img src="assets/img/about/3.jpg" alt="" data-at2x="assets/img/about/3.jpg">
+	            			<div class="img-container-line line-1"></div>
+	            			<div class="img-container-line line-2"></div>
+	            			<div class="img-container-line line-3"></div>
+	            		</div>
+	            	</div>
+	            	<div class="col-sm-8 block-2-box block-2-right wow fadeInUp">
+	            		<h3>Sarah Red / <span>Designer</span></h3>
+	            		<p>
+	            			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+	            			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+	            		</p>
+	            		<p>
+	            			Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. 
+	            			Mirum est notare quam littera gothica, quam nunc putamus parum claram lorem.
+	            		</p>
+	            		<h3>Follow Her:</h3>
+	            		<div class="about-social">
+		                	<a href="#"><i class="fa fa-facebook"></i></a>
+		                	<a href="#"><i class="fa fa-dribbble"></i></a>
+		                    <a href="#"><i class="fa fa-twitter"></i></a>
+		                    <a href="#"><i class="fa fa-pinterest"></i></a>
+		                </div>
+	            	</div>
+	            </div>
+	        </div>
+        </div>
+ 
+		<!-- Contact us (block 2) -->
+        <div class="block-2-container section-container contact-container">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm-12 block-2 section-description wow fadeIn">
+	                	<h2>Contact us</h2>
+	                	<div class="divider-1 wow fadeInUp"><span></span></div>
+	                    <p>
+	                    	For every question, information or just to say "Hi", here is how you can get in touch with us. Send us an email or come visit us!
+	                    </p>
+	                </div>
+	            </div>
+	            <div class="row">
+	            	<div class="col-sm-4 block-2-box block-2-left contact-form wow fadeInLeft">
+	            		<h3>Email us</h3>
+	                    <form role="form" action="assets/contact.php" method="post">
+	                    	<div class="form-group">
+	                    		<label class="sr-only" for="contact-email">Email</label>
+	                        	<input type="text" name="email" placeholder="Email..." class="contact-email form-control" id="contact-email">
+	                        </div>
+	                        <div class="form-group">
+	                        	<label class="sr-only" for="contact-subject">Subject</label>
+	                        	<input type="text" name="subject" placeholder="Subject..." class="contact-subject form-control" id="contact-subject">
+	                        </div>
+	                        <div class="form-group">
+	                        	<label class="sr-only" for="contact-message">Message</label>
+	                        	<textarea name="message" placeholder="Message..." class="contact-message form-control" id="contact-message"></textarea>
+	                        </div>
+	                        <button type="submit" class="btn">Send it</button>
+	                    </form>
+	            	</div>
+	            	<div class="col-sm-4 block-2-box block-2-right contact-address wow fadeInUp">
+	            		<h3>Visit us</h3>
+	                    <p><span aria-hidden="true" class="icon_pin"></span>Via Principe Amedeo 9, Torino, Italy</p>
+	                    <p><span aria-hidden="true" class="icon_phone"></span>Phone: 0039 333 12 68 347</p>
+	                    <p><span aria-hidden="true" class="icon_mail"></span>Email: <a href="">hi@yourdomain.com</a></p>
+	            	</div>
+	            </div>
+	            <div class="contact-icon-container">
+            		<span aria-hidden="true" class="icon_mail"></span>
+            	</div>
+	        </div>
+        </div>
 
-					</p>
-				</div>
+        <!-- Footer -->
+        <footer>
+	        <div class="container">
+	        	<div class="row">
+		        	<div class="col-sm-12">
+		        		<div class="scroll-to-top">
+		        			<a href="#"><i class="fa fa-chevron-up"></i></a>
+		        		</div>
+		        	</div>
+		        </div>
+	            <div class="row">
+                    <div class="col-sm-7 footer-copyright">
+                    	&copy; Lancar Bootstrap Template by <a href="http://azmind.com">Azmind</a>.
+                    </div>
+                    <div class="col-sm-5 footer-social">
+                    	<a href="#"><i class="fa fa-facebook"></i></a>
+	                	<a href="#"><i class="fa fa-dribbble"></i></a>
+	                    <a href="#"><i class="fa fa-twitter"></i></a>
+	                    <a href="#"><i class="fa fa-google-plus"></i></a>
+	                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                    </div>
+	            </div>
+	        </div>
+        </footer>
+        
 
-				<div class="col-lg-3 team">
-					<img class="img-circle" src="assets/img/team03.jpg" height="90" width="90">
-					<h4>Pamela Chow</h4>
-					<h5><i>Web Designer</i></h5>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-					<p>
-						<a href="index.html#"><i class="icon-facebook"></i></a>
-						<a href="index.html#"><i class="icon-twitter"></i></a>
-						<a href="index.html#"><i class="icon-envelope"></i></a>
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/retina-1.1.0.min.js"></script>
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="assets/js/waypoints.min.js"></script>
+        <script src="assets/js/jquery.countTo.js"></script>
+        <script src="assets/js/masonry.pkgd.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
 
-					</p>
-				</div>
+    </body>
 
-				<div class="col-lg-3 team">
-					<img class="img-circle" src="assets/img/team04.jpg" height="90" width="90">
-					<h4>Tim Gates</h4>
-					<h5><i>Back-end Guru</i></h5>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-					<p>
-						<a href="index.html#"><i class="icon-facebook"></i></a>
-						<a href="index.html#"><i class="icon-twitter"></i></a>
-						<a href="index.html#"><i class="icon-envelope"></i></a>
-
-					</p>
-				</div>
-			</div>
-		</div><!-- /container -->
-	</div><!-- /g -->
-	
-	<!-- ========== FOOTER SECTION ========== -->
-	<section id="contact" name="contact"></section>
-	<div id="f">
-		<div class="container">
-			<div class="row">
-					<h3><b>CONTACT US</b></h3>
-					<br>
-					<div class="col-lg-4">
-						<h3><b>Send Us A Message:</b></h3>
-						<h3>onassis@blacktie.co</h3>
-						<br>
-					</div>
-					
-					<div class="col-lg-4">	
-						<h3><b>Call Us:</b></h3>
-						<h3>+55 3984-4389</h3>
-						<br>
-					</div>
-					
-					<div class="col-lg-4">
-						<h3><b>We Are Social</b></h3>
-						<p>
-							<a href="index.html#"><i class="icon-facebook"></i></a>
-							<a href="index.html#"><i class="icon-twitter"></i></a>
-							<a href="index.html#"><i class="icon-envelope"></i></a>
-						</p>
-						<br>
-					</div>
-				</div>
-			</div>
-		</div><!-- /container -->
-	</div><!-- /f -->
-	
-	<div id="c">
-		<div class="container">
-			<p>Created by <a href="http://www.blacktie.co">BLACKTIE.CO</a></p>
-		
-		</div>
-	</div>
-	
-	
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-	<script src="assets/js/classie.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/smoothscroll.js"></script>
-	<script src="assets/js/main.js"></script>
-</body>
 </html>
