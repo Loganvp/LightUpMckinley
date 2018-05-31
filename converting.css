@@ -1,0 +1,171 @@
+html{
+  background-color: #f3f3f3;
+}
+
+body{
+  box-sizing: border-box;
+  max-width: 500px; /*max size for onbase */
+  margin: 0 auto;
+
+  padding: 5px;
+  font face ="Franklin";
+  background-color: white;
+
+  border: 1px;
+  box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.1);
+
+  font: bold 14px sans-serif;
+  text-align: center;
+}
+
+Header{
+  margin: 0px;
+  padding: 0 0 10px 0;
+}
+
+h1{  /*this is for "AP Coding Notes" */
+  display: inline-block;
+  box-sizing: border-box;
+  color: #4C565E;
+  font-size: 20px;
+  padding: 0 0 3px 0;
+  margin: 0;
+  border-bottom: 2px solid red;
+
+}
+
+h2{  /*this is for "Charge to" */
+  display: inline-block;
+  box-sizing: border-box;
+  color: #4C565E;
+  font-size: 10px;
+  padding: 0 0 3px 0;
+  margin-bottom: 4;
+  border-bottom: 1px solid red;
+  width: 400px;
+}
+
+p{ /* this is for "Item" */
+  font-size: 9px;
+  text-align: left;
+  font-style: italic;
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 1px solid black;
+  width: 300px
+}
+
+table.AP-Enter {
+  padding: 1px;
+  width: 500px;
+}
+
+table.User-Enter {
+  border-spacing: 0;
+  padding-left: 13px;
+}
+
+
+table.footer {
+  justify-content: center;
+  padding: 1px;
+  width: 500px;
+}
+
+table.AP-Enter .tda {
+  font-weight: bold;
+  width: 70;
+}
+
+table.AP-Enter td {
+  font-size: 10px;
+  text-align: left;
+}
+
+table.User-Enter .tda {
+  width: 75px;
+}
+
+table.User-Enter td {
+  font-size: 10px;
+  text-align: left;
+  padding-top: 5px;
+}
+
+table.footer td {
+  justify-content: center;
+  padding: 10px;
+}
+
+table.AP-Enter input[type=text]{
+    color:  #5f5f5f;
+    box-sizing: border-box;
+    width: 140px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+}
+
+
+input{
+    color:  #5f5f5f;
+    box-sizing: border-box;
+    width: 300px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+	font-size: 12px;
+}
+
+select{
+    color:  #5f5f5f;
+    box-sizing: border-box;
+    width: 300px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+}
+
+input[type=button]{
+    border-radius: 2px;
+    background-color: #9ec3ff;
+    color: #ffffff;
+    font-weight: bold;
+
+
+    border: 0;
+    width: 150px;
+    font-style: italic;
+	margin:0 auto;
+    display:block;
+}
+
+input[type=submit]{
+    border-radius: 2px;
+    background-color:  #9ec3ff;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 1px 2px 7px 0 rgba(0, 0, 0, 0.08);
+    padding: 4px 15px;
+    border: 0;
+    margin-top: 15px;
+    width: 100px;
+    font-style: italic;
+}
+
+input[type=checkbox]{
+    border-radius: 2px;
+    background-color: #9ec3ff;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 4px 5px;
+    border: 0;
+    width: 30px;
+    font-style: italic;
+}
+
+textarea{
+    color:  #5f5f5f;
+    box-sizing: border-box;
+    width: 300px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+	resize: vertical;
+}

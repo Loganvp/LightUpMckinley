@@ -1,0 +1,476 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Language" content="en-us">
+      <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+      <title>Ozinga AP Coding Notes</title>
+      <link rel="stylesheet" href="converting.css" type="text/css">
+   </head>
+   <script type="text/javascript" language="javascript" src="file://onbase/onbase$/Eforms/lib/prototype.js" ></script>
+   <script type="text/javascript" language="javascript" src="file://onbase/onbase$/Eforms/lib/html-form-input-mask.js"></script>
+   <script type="text/javascript" language="javascript"> <!-- declaring functions to be used: Auto-fills -->
+      function AutoFillKeyword(QueryID, oKeyword, iInstance) {
+          var sKeywordValue = oKeyword.value;
+          var sParams = "AutofillID=" + QueryID + "&PrimaryKeyword=" + sKeywordValue + "&Instance=" + iInstance;
+          // alert(sParams);
+          var soaURL = "http://onbase/onbaseservices/service.asmx/Autofill";
+          var requestor = new AjaxRequestor(soaURL, sParams, getAutoFillKeywords_callBack)
+      }
+      function getAutoFillKeywords_callBack() {
+          // alert(this.req.responseText);
+          var strKeywords = this.req.reponseText;
+          populateAutoFillKeywords(this.req.responseText);
+      }
+      function populateAutoFillKeywords(responseText) {
+          var keywordPanel = document.getElementById("keywordPanel");
+          //        Check to see if IE
+          if (window.ActiveXObject) {
+              var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+              xmlDoc.async = false;
+              xmlDoc.loadXML(responseText);
+              var nodeList = xmlDoc.selectNodes("KeywordSetsCollection/KeywordSet");
+              var length = nodeList.length;
+      
+              if (nodeList.length == 0){
+                  alert("No matching keywords found");
+              }
+              else if (nodeList.length > 1){
+                  alert("More than one matching keyword found");
+                  //Need to build a handle to show a drop down with the returned keywords
+                  //that the user can click on and choose the keyword they want
+              }
+              else (nodeList.length == 1)
+              {
+                  var nodeKeywordList = nodeList[0].selectNodes("Keyword");
+                  for (var i = 0; i < nodeKeywordList.length; i++) {
+                      try {
+                          var sKeywordLocation = nodeKeywordList.item(i).attributes.getNamedItem("id").text;
+							//sKeywordLocation = "OBKey__" + sKeywordLocation + "_" +
+                          var sKeywordValue = nodeKeywordList.item(i).text;
+                          var oInputField = document.getElementsByName(sKeywordLocation).item(0);
+                          oInputField.value = sKeywordValue;
+                      }
+                      catch (err) {
+                          //alert(err.description);
+                          }
+                  }
+              }
+          }
+          else if (document.implementation && document.implementation.createDocument) {
+              //            Create the parser and load up the xml
+              var parser = new DOMParser();
+              var doc = parser.parseFromString(responseText, "application/xml");
+              var nodeList = doc.getElementsByTagName("KeywordSetsCollection")[0].childNodes;
+              var length = nodeList.length;
+      
+              if (nodeList.length == 0) {
+                  alert("No matching keywords found");
+              }
+              else if (nodeList.length > 1) {
+                  alert("More than one matching keyword found");
+                  //Need to build a handle to show a drop down with the returned keywords
+                  //that the user can click on and choose the keyword they want
+              }
+              else (nodeList.length == 1)
+              {
+                  var nodeKeywordList = nodeList[0].selectNodes("Keyword");
+                  for (var i = 0; i < nodeKeywordList.length; i++) {
+                      var sKeywordLocation = nodeKeywordList.item(i).attributes.getNamedItem("id").text;
+                      var sKeywordValue = nodeKeywordList.item(i).text;
+                      var oInputField = document.getElementsByName(sKeywordLocation).item(0);
+                      oInputField.value = sKeywordValue;
+                  }
+              }
+          }
+      }
+      function AjaxRequestor(url, params, callback) {
+          this.req = null;
+          this.callback = callback;
+          this.load(url, params);
+      }
+      AjaxRequestor.prototype.load = function(url, params) {
+          var requestor = this;
+          if (window.ActiveXObject) {
+              this.req = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          else if (window.XMLHttpRequest) {
+              this.req = new XMLHttpRequest();
+          }
+          else {
+              alert("Browser failed to create object");
+          }
+          this.req.onreadystatechange = function() {
+              requestor.onreadystatechange.call(requestor);
+          }
+          this.req.open("POST", url, true);
+          this.req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+          this.req.send(params);
+      }
+      AjaxRequestor.prototype.onreadystatechange = function() {
+          if (this.req.readyState == 4) {
+              this.callback.call(this);
+          }
+      }
+   </script>
+   <body onload="Init_Page()" >
+      <SCRIPT type="text/JavaScript"> <!-- Checks number of entries: Restricts to 10 possible entries-->
+         function fnToUpper(obj){
+         	obj.value=obj.value.toUpperCase();
+         }
+         
+         function disableEnterKey(){
+         	if(event.keyCode == 13) {
+         		event.keyCode=9; //return the tab key
+         		event.cancelBubble = true;
+         	}
+         }
+         
+         var submitType = Number();
+         var totalNumEntries = 10;
+         function SetSubmitType(newValue) {
+             submitType = newValue;
+         }
+         
+         function Init_Page() {
+         	var i;
+         	var strGLType;
+         	var strApplyAcct;
+         	var strLocation;
+         	var strApplyTo;
+         	var strNoteDescription;
+			var strBaseCo;
+         
+         	Xaprb.InputMask.setupElementMasks();
+         	for(i=1; i<=totalNumEntries; i++){
+         		if ( i < 10 ) {
+         			Instance = '0' + i;
+         		} else {
+         			Instance = i;
+         		}
+         		strApplyAcct  = document.getElementById("inst" + Instance + "_ApplyAcct").value;
+         		strLocation   = document.getElementById("inst" + Instance + "_Location").options[document.getElementById("inst" + Instance + "_Location").selectedIndex].text;
+         		strApplyTo    = document.getElementById("inst" + Instance + "_ApplyTo").options[document.getElementById("inst" + Instance + "_ApplyTo").selectedIndex].text;
+         		strNoteDescription = document.getElementById("inst" + Instance + "_NoteDescription").value;
+         	    	if (    (   (  ( strApplyAcct.length !=0 ) && ( strApplyAcct != null )  )  || (  ( strLocation.length !=0 ) && ( strLocation != null )  ) || (  ( strApplyTo.length !=0 ) && ( strApplyTo != null )  ) || (  ( strNoteDescription.length !=0 ) && ( strNoteDescription != null )  )   ) &&  ( Instance < totalNumEntries + 1 )    ) {
+         			show('tblApplyTo' + Instance);
+         		}
+				strBaseCo     = document.getElementById("inst" + Instance + "_BaseCo").options[document.getElementById("inst" + Instance + "_BaseCo").selectedIndex].text;
+         	} //for-loop
+         }
+      </SCRIPT>
+      <script type="text/JavaScript"> <!-- getElementById-->
+         <!--
+            function show(id) {
+                if (document.getElementById(id).style.display == 'none')
+                {
+                        document.getElementById(id).style.display = '';
+                }
+            }
+            //-->
+         
+            <!--
+            function hide(id) {
+         	document.getElementById(id).style.display = 'none';
+            }
+         //-->
+      </script>
+      
+	  <script type="text/JavaScript"> <!-- Check coding on each insert-->
+         function validateAllCoding() {
+         	var i;
+         	var Instance;
+         	var strGLCodeType;
+         var bol_validCoding = false;
+         var bol_validationAll = false;
+         
+         var j = 0;  //this variable will determine if any coding exists on this form, if 0 then communicate an error
+         var k = 0;  //this variable will count the number of invaidCoding entries made on the document, if 0 then coding entries are all blank or all completely filled out.
+         
+         //alert("submitType = " + submitType);
+         if ( submitType == 1 ) {
+         //validate that each section's coding is completely entered
+         		for (i=1; i<=totalNumEntries; i++) {
+         			if ( i < 10 ) {
+         				Instance = '0' + i;
+         			} else {
+         				Instance = i;
+         			}
+         //NOTE: Location + ApplyTo are REQUIRED.
+         var ApplyAcct = document.getElementById("inst" + Instance + "_ApplyAcct").value;
+         var Location = document.getElementById("inst" + Instance + "_Location").options[document.getElementById("inst" + Instance + "_Location").selectedIndex].text;
+         var ApplyTo = document.getElementById("inst" + Instance + "_ApplyTo").options[document.getElementById("inst" + Instance + "_ApplyTo").selectedIndex].text;
+         var ApplyNote = document.getElementById("inst" + Instance + "_NoteDescription").value;
+         var Amount = document.getElementById("inst" + Instance + "_Amount").value;
+         
+         //alert("Location = >>" + Location +"<< length = " + Location.length + " ... ApplyTo = >>" + ApplyTo + "<< length = " + ApplyTo.length );
+         if (  ( (Location.length != 0) && (Location != null) ) && ( (ApplyTo.length != 0) && (ApplyTo != null) )  ) {
+         //alert("APPLY LOC + APPLY TO are entered, valid entry");
+			j++;
+         } else if (  ( (Location.length != 0) && (Location != null) ) && ( (ApplyTo.length == 0) || (ApplyTo == null) )  ) {
+         //alert("Line (" + i + ") of the Coding Notes is incomplete, APPLY TO is missing.\nPlease enter an APPLY TO to save, or click cancel to abort.");
+         	j++;
+         //	k++;
+         } else if (  ( (Location.length == 0) || (Location == null) ) && ( (ApplyTo.length != 0) && (ApplyTo != null) )  ) {
+         //	alert("Line (" + i + ") of the Coding Notes is incomplete, APPLY LOC is missing.\nPlease enter an APPLY LOC to save, or click cancel to abort.");
+         	j++;
+         //	k++;
+         
+         } else if (   (  ( (Location.length == 0) || (Location == null) ) && ( (ApplyTo.length == 0) || (ApplyTo == null) )  )
+         	&& (  ( (ApplyAcct.length != 0) && (ApplyAcct != null) ) || ( (Amount.length != 0) && (Amount != null) ) || ( (ApplyNote.length != 0) && (ApplyNote != null) )  )   ) {
+         //	alert("Line (" + i + ") of the Coding Notes is incomplete.\nPlease enter both APPLY LOC and APPLY TO to save, or click cancel to abort.");
+         	j++;
+         //	k++;
+         } else {
+         	//blank line - no incrementing anything
+         	//alert("Line (" + i + ") is blank.  This is OK unless all lines are blank.");
+         }
+          	} //for-loop
+         
+         //validate at least one coding line exists
+         		if ( j == 0 ) {
+         				k++;
+         alert("At least one coding line must exist. \nPlease code at least one line accordingly and try again.");
+         bol_validCoding = false;
+         }
+         if ( k == 0 ) {
+         bol_validCoding = true;
+         }
+         //submitType equal to 2 is Calculate, return false because we aren't going to submit/save
+         if ( bol_validCoding == true ) {
+         //submitType equal to 1 is Save, valid coding, valid totals, have at least one line of coding, returns true
+         bol_validationAll = true;
+         } else {
+         				bol_validationAll = false;
+         }
+         } else if ( submitType == 0 ) {
+         //submitType = 0, the cancel button - do nothing but return true;
+         bol_validationAll = true;
+         } else {
+         //unexpected result
+         bol_validationAll = false;
+         }
+         //alert("bol_validationAll = " + bol_validationAll);
+         return bol_validationAll;
+         } //function validateAllCoding()
+      </script>
+      <script type="text/JavaScript">   <!-- tblApplyTo: Adds a new Item Section-->
+         function ShowNextApplyTbl() {
+             var i = Number();
+             var Instance;
+         
+             for (i=1;i<=totalNumEntries;i++) {
+             	if (i < 10) {
+             		Instance = '0' + i;
+             	} else {
+             		Instance = i;
+             	}
+                 var vDivId = "tblApplyTo" + Instance;
+                 if (document.getElementById(vDivId).style.display == "none") {
+                 	show(vDivId);
+                 	if (i == totalNumEntries ) {
+                 		document.getElementById("AddLines").disabled = "true";
+                 	}
+                 	break;
+                 }
+             }
+             if (i > totalNumEntries) {
+              alert("No additional coding sections can be displayed");
+              return (-1);
+          } else {
+          	return (0);
+          }
+         }
+      </script>
+	  <script type="text/JavaScript">   <!-- tblAddProject: Shows/hides project Entry-->
+         function ShowProject() {
+             var i = Number();
+             var Instance;
+         
+             for (i=1;i<=totalNumEntries;i++) {
+             	if (i < 10) {
+             		Instance = '0' + i;
+             	} else {
+             		Instance = i;
+             	}
+                 var vDivId = "tblProject" + Instance;
+                 if (document.getElementById(vDivId).style.display == "none") {
+                 	show(vDivId);
+                 	if (i == totalNumEntries ) {
+                 		document.getElementById("AddProject").disabled = "true";
+                 	}
+                 	break;
+                 }
+				 if (document.getElementById(vDivId).style.display != "none") {
+                 	hide(vDivId);
+                 	if (i == totalNumEntries ) {
+                 		document.getElementById("AddProject").disabled = "true";
+                 	}
+					document.getElementById("inst" + Instance + "_Project").value = '';
+                 	break;
+                 }
+             }
+             if (i > totalNumEntries) {
+              alert("No additional coding sections can be displayed");
+              return (-1);
+          } else {
+          	return (0);
+          }
+         }
+      </script>
+	  
+      <Header>
+         <h1>AP Coding Notes</h1>
+      </Header>
+      <form name="line_items" class="form" onsubmit="return validateAllCoding()" action="--WEBBOT-SELF--" method="POST">
+         <table id="Header01" class="AP-Enter">
+            <tr>
+               <td class="tda">Invoice #:</td>
+               <td><input type="text" name="OBKey__162_1" id="Invoice_Number" readonly="true" tabindex="-1" onkeydown="disableEnterKey()"></td>
+               <td class="tda">Company:</td>
+               <td><input type="text" name="OBKey__156_1" id="BaseCo"  readonly="true" onkeydown="disableEnterKey()"></td>
+            </tr>
+            <tr>
+               <td class="tda">Vendor ID:</td>
+               <td><input type="text" name="OBKey__151_1" id="VendorCode" readonly="true" tabindex="-1" onkeydown="disableEnterKey()"></td>
+               <td class="tda">Vendor Name:</td>
+               <td><input type="text" name="OBKey__152_1" id="VendorName"  readonly="true" tabindex="-1" onkeydown="disableEnterKey()"></td>
+            </tr>
+            <tr>
+               <td class="tda">Invoice Total:</td>
+               <td><input type="text" name="OBKey__164_1" id="Invoice_Total" readonly="true" onkeydown="disableEnterKey()"></td>
+               <td class="tda">Invoice Date:</td>
+               <td><input type="text" name="OBKey__163_1" readonly="true" tabindex="-1" onkeydown="disableEnterKey()"></td>
+			</tr>
+			<tr>
+				<td class="tda">Usage:</td>
+				<td><input type="text" name="OBKey__477_1" id="Usage" onkeydown="disableEnterKey()"></td>
+				<td class="tda">UOM:</td>
+				<td><select name="OBDataset__377_1" id="UOM" style="width:140px"  onkeydown="disableEnterKey()"><option value="" selected></option></select></td>
+			</tr>
+		 </table>
+         <table>
+            <td><input type="button" value="Add Line Items" name="AddLines" id="AddLines" onclick="ShowNextApplyTbl()" onkeydown="disableEnterKey()"></td>
+         </table>
+         <table id="tblApplyTo01" class="User-Enter" >
+            <td>
+            <tr><h2>Charge to:</h2></tr>
+            <tr>
+				<td></td>
+				<td colspan="2"><p>Item 1</p></td>
+            </tr>
+			<tr>
+               <td class="tda">Company</td>
+               <td><select colspan="2" name="OBDataset__156_1" id="inst01_BaseCo" onkeydown="disableEnterKey()"><option value="" selected></option></select></td>
+            </tr>
+			<tr>
+               <td class="tda">Department</td>
+               <td><select colspan="2" name="OBDataset__551_1" id="inst01_Deptartment" onkeydown="disableEnterKey()"><option value="" selected></option></select></td>
+            </tr>
+			<tr>
+               <td class="tda">Division</td>
+               <td><select colspan="2" name="OBDataset__398_1" id="inst01_Division" onkeydown="disableEnterKey()"><option value="" selected></option></select></td>
+            </tr>
+			<tr>
+               <td class="tda">Location</td>
+               <td colspan="2"><select name="OBDataset__132_1" id="inst01_Location"  onkeydown="disableEnterKey()"><option value="" selected></option></select></td>
+            </tr>
+			<!-- <tr> Use this as reference 
+               <td class="tda">Expense Type</td>
+               <td>
+                  <input colspan="2" name="OBKey__169_1" id="inst01_ApplyAcct" class="text input_mask mask_oz_acct_num" style="width: 70px;" onkeydown="disableEnterKey()" onblur="AutoFillKeyword(118, this, 1)">
+                  <input colspan="2" type="text" name="OBKey__150_1" id="inst01_ApplyAcctDesc"  tabindex="-1" readonly="true" onkeydown="disableEnterKey()" style="background-color: #FFFFCC;width: 227px;">
+               </td>
+            </tr> -->
+			<tr>
+               <td class="tda">Expense Type</td>
+               <td><select colspan="2" name="OBDataset__167_1" id="inst01_ApplyTo"  onkeydown="disableEnterKey()"><option value="" selected></option></select></td>
+            </tr>
+			<tr>
+               <td class="tda">Description</td>
+               <td><input colspan="2" type="text" Maxlength="30" name="OBKey__158_1" id="inst01_NoteDescription"  onblur="fnToUpper(this)" onkeydown="disableEnterKey()"></td>
+            </tr>
+			<tr>
+               <td class="tda">Additional Explanation</td>
+               <td><textarea rows="3" type="text" Maxlength="250" name="OBKey__549_1" id="inst01_NoteExplanation"  onblur="fnToUpper(this)" onkeydown="disableEnterKey()"></textarea></td>
+            </tr>
+			<tr>
+               <td class="tda">Item Amount $</td>
+               <td><input colspan="2" type="text" name="OBKey__195_1" id="inst01_Amount"  onkeydown="disableEnterKey()"></td>
+            </tr>
+           <!--  <tr>
+               <td class="tda">Apply Acct</td>
+               <td><select colspan="2" name="OBDataset__167_1" id="inst01_ApplyTo"  onkeydown="disableEnterKey()"><option value="" selected></option></select></td>
+            </tr> -->
+            <tr>
+               <td class="tda"><b>AP Coding</b></td>
+               <td><input colspan="2" type="text" name="OBKey__261_1" id="inst01_APCoding"  onkeydown="disableEnterKey()" maxlength="30"></td>
+            </tr>
+
+			
+			<!-- This allows the user to add a project if there is one. -->	
+			<tr>
+				<td></td>
+				<td>Project?<input type="checkbox" colspan="1" value="Project?" name="AddProject" id="AddProject" onclick="ShowProject()" onkeydown="disableEnterKey()"></td>
+			</tr>
+			<tr id="tblProject01" style="display:none">
+				<td class="tda"><b>Project</b></td>
+               <td><input colspan="2" type="text" name="OBKey__???_1" id="inst01_Project"  onkeydown="disableEnterKey()" maxlength="30"></td>
+			</tr>
+         </table>
+		 
+	<!-- NOTE: Second Section -->	 
+	
+         <table id="tblApplyTo02" style="display:none" class="User-Enter" >
+            <td>
+            <tr>
+               <td></td>
+               <td>
+                  <p>Item 2</p>
+               </td>
+            </tr>
+            <tr>
+               <td class="tda">Apply Acct</td>
+               <td>
+                  <input name="OBKey__169_2" id="inst02_ApplyAcct" class="text input_mask mask_oz_acct_num" style="width: 70px;" onkeydown="disableEnterKey()" onblur="AutoFillKeyword(118, this, 1)">
+                  <input type="text" name="OBKey__150_2" id="inst02_ApplyAcctDesc"  tabindex="-1" readonly="true" onkeydown="disableEnterKey()" style="background-color: #FFCCFF;width: 227px;">
+               </td>
+            </tr>
+            <tr>
+               <td class="tda">Apply Loc</td>
+               <td>
+                  <select name="OBDataset__132_2" id="inst02_Location"  onkeydown="disableEnterKey()">
+                     <option value="" selected></option>
+                  </select>
+               </td>
+            </tr>
+            <tr>
+               <td class="tda">Apply To</td>
+               <td>
+                  <select name="OBDataset__167_2" id="inst02_ApplyTo"  onkeydown="disableEnterKey()">
+                     <option value="" selected></option>
+                  </select>
+               </td>
+            </tr>
+            <tr>
+               <td class="tda">Apply Amt</td>
+               <td><input type="text" name="OBKey__195_2" id="inst02_Amount" onkeydown="disableEnterKey()"></td>
+            </tr>
+            <tr>
+               <td class="tda"><b>AP Coding</b></td>
+               <td><input type="text" name="OBKey__261_2" id="inst02_APCoding" onkeydown="disableEnterKey()" maxlength="30"></td>
+            </tr>
+            <tr>
+               <td class="tda">Notes</td>
+               <td><input type="text" name="OBKey__158_2" id="inst02_NoteDescription"  onblur="fnToUpper(this)" onkeydown="disableEnterKey()"></td>
+            </tr>
+         </table>
+    <!-- NOTE: Insert the copies up to 10. -->
+         
+         <table id="tblTotals" class="footer">
+            <td>
+               <input type="submit" value="Save" name="OBBtn_Yes" onclick="SetSubmitType(1)" onkeydown="disableEnterKey()">&nbsp;&nbsp;
+               <input type="submit" value="Cancel" name="OBBtn_Cancel"  onclick="SetSubmitType(0)" onkeydown="disableEnterKey()">
+            </td>
+         </table>
+      </form>
+   </body>
+</html>
